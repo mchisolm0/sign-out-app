@@ -15,3 +15,5 @@ function DetailScreen() {
         </View>
     )
 }
+
+export { HomeScreen, DetailScreen };
