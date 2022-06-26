@@ -21,6 +21,7 @@ export default function App() {
           component={DetailScreen}
         />
       </Stack.Navigator>
+      <StatusBar style="auto" />
     </NavigationContainer>
   );
 }
