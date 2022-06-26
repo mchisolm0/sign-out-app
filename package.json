@@ -21,7 +21,6 @@
     "react-native-screens": "~3.11.1",
     "react-native-web": "0.17.7",
     "react-native-gesture-handler": "~2.2.1",
-    "undefined": "react-navigation/native"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
