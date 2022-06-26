@@ -32,4 +32,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    padding: 2,
+    backgroundColor: 'blue',
+  },
 });
