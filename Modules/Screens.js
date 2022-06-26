@@ -1,4 +1,5 @@
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
 
 function HomeScreen() {
     return (
