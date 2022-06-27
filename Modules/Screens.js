@@ -1,7 +1,11 @@
+import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-function HomeScreen({ navigation }) {
+const Tab = createBottomTabNavigator();
+
+function StudentsScreen({ navigation }) {
     const [name, setName] = React.useState('');
 
     return (
@@ -25,6 +29,25 @@ function DetailScreen({ route, navigation }) {
             <Text style={styles.headingText}>Student: { name } </Text>
             <Button title='Go Home' style={styles.button} onPress={() => navigation.navigate('Home')} />
         </View>
+    )
+}
+
+function TodayScreen( route, navigation ) {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen
+                name='AM'
+                component={StudentsScreen}
+                />
+            <Tab.Screen
+                name='PM'
+                component={StudentScreen}
+                />
+            <Tab.Screen
+                name='All'
+                component={StudentScreen}
+                />
+        </Tab.Navigator>
     )
 }
 
@@ -55,4 +78,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export { HomeScreen, DetailScreen };
+export { StudentsScreen, DetailScreen };
