@@ -10,13 +10,13 @@ function StudentsScreen({ navigation }) {
 
     return (
         <View>
-            <Text style={styles.headingText}>Home Screen</Text>
+            <Text style={styles.headingText}> Home Screen </Text>
             <TextInput
                 style={styles.userText}
                 placeholder='Please add text'
                 value={name}
                 onChangeText={(text)=> setName(text)} />
-            <Button title='Go to detail' style={styles.button} onPress={() => navigation.navigate("Details", { name })} />
+          <Button title='Go to detail' style={styles.button} onPress={() => navigation.navigate("DetailScreen", { params: { student: name }})} />
         </View>
     )
 }
@@ -41,16 +41,53 @@ function TodayScreen( route, navigation ) {
                 />
             <Tab.Screen
                 name='PM'
-                component={StudentScreen}
+                component={StudentsScreen}
                 />
             <Tab.Screen
                 name='All'
-                component={StudentScreen}
+                component={StudentsScreen}
                 />
         </Tab.Navigator>
     )
 }
 
+function HistoryScreen( route, navigation ) {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen
+                name='AM'
+                component={StudentsScreen}
+                />
+            <Tab.Screen
+                name='PM'
+                component={StudentsScreen}
+                />
+            <Tab.Screen
+                name='All'
+                component={StudentsScreen}
+                />
+        </Tab.Navigator>
+    )
+}
+
+function SettingsScreen( route, navigation  ) {
+    return(
+        <Tab.Navigator>
+            <Tab.Screen
+                name='AM'
+                component={StudentsScreen}
+                />
+            <Tab.Screen
+                name='PM'
+                component={StudentsScreen}
+                />
+            <Tab.Screen
+                name='All'
+                component={StudentsScreen}
+                />
+        </Tab.Navigator>
+    )
+}
 const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -78,4 +115,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export { StudentsScreen, DetailScreen };
+export { StudentsScreen, DetailScreen, HistoryScreen, TodayScreen, SettingsScreen};

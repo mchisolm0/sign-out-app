@@ -4,7 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { StudentsScreen, DetailScreen } from './Modules/Screens';
+import { StudentsScreen, DetailScreen, TodayScreen, HistoryScreen, SettingsScreen } from './Modules/Screens';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 const Stack = createNativeStackNavigator();
@@ -42,7 +42,7 @@ export default function App() {
           component={SettingsScreen}
           />
       </Drawer.Navigator>
-      <StudentListStack />
+      {/* <StudentListStack /> */}
       <StatusBar style="auto" />
     </NavigationContainer>
   );
