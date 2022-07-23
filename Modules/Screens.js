@@ -1,23 +1,58 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import { StyleSheet, Text, View, Button, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, useWindowDimensions } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createDrawerNavigator} from '@react-navigation/drawer';
 
 const Tab = createBottomTabNavigator();
+const StudentListDrawer = createDrawerNavigator();
 
-function StudentsScreen({ navigation }) {
+function StudentScreen({ studentName }) {
     const [name, setName] = React.useState('');
+    const theName = studentName;
 
     return (
         <View>
-            <Text style={styles.headingText}> Home Screen </Text>
+          <Text>The student's name is {theName}</Text>
+        </View>
+    )
+}
+
+function StudentsScreen({ navigation }) {
+    const dimensions = useWindowDimensions();
+
+    return (
+        <StudentListDrawer.Navigator
+            screenOptions={{
+                drawerType: dimensions.width >= 768 ? 'permanent' : 'slide',
+            }}>
+          <StudentListDrawer.Screen
+            name='Student1'
+            component=<StudentScreen studentName = 'Julia' />
+          />
+          <StudentListDrawer.Screen
+            name='Student2'
+            component=<StudentScreen studentName = 'Samuel' />
+          />
+        {/*
+          <Text style={styles.headingText}> Home Screen </Text>
             <TextInput
                 style={styles.userText}
                 placeholder='Please add text'
                 value={name}
                 onChangeText={(text)=> setName(text)} />
-          <Button title='Go to detail' style={styles.button} onPress={() => navigation.navigate("DetailScreen", { params: { student: name }})} />
-        </View>
+          <Button
+            title='Go to detail'
+            style={styles.button}
+            onPress={() => navigation.navigate(
+                "DetailScreen",
+                { params:
+                  { student: name }
+                }
+            )}
+          />
+         */}
+        </StudentListDrawer.Navigator>
     )
 }
 

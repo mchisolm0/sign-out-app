@@ -7,9 +7,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StudentsScreen, DetailScreen, TodayScreen, HistoryScreen, SettingsScreen } from './Modules/Screens';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
-const Stack = createNativeStackNavigator();
-const Drawer = createDrawerNavigator();
+const PageDrawer = createDrawerNavigator();
 
+{/* Taking out the list stack for now while making bare-ui
+const Stack = createNativeStackNavigator();
 function StudentListStack() {
   return (
     <Stack.Navigator>
@@ -23,25 +24,26 @@ function StudentListStack() {
         />
       </Stack.Navigator>
   )
-}
+  } */}
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
-        <Drawer.Screen
+      <PageDrawer.Navigator>
+        {/* Make PageDrawer only open on pressing icon*/}
+        <PageDrawer.Screen
           name='Today'
           component={TodayScreen}
-          />
-        <Drawer.Screen
+        />
+        <PageDrawer.Screen
           name='History'
           component={HistoryScreen}
-          />
-        <Drawer.Screen
+        />
+        <PageDrawer.Screen
           name='Settings'
           component={SettingsScreen}
-          />
-      </Drawer.Navigator>
+        />
+      </PageDrawer.Navigator>
       {/* <StudentListStack /> */}
       <StatusBar style="auto" />
     </NavigationContainer>
