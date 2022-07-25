@@ -3,18 +3,19 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, useWindowDimensions } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createDrawerNavigator} from '@react-navigation/drawer';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Tab = createBottomTabNavigator();
 const StudentListDrawer = createDrawerNavigator();
+const Stack = createNativeStackNavigator();
 
 function StudentScreen({ studentName }) {
-    const [name, setName] = React.useState('');
-    const theName = studentName;
+  const [name, setName] = React.useState(studentName);
 
     return (
-        <View>
-          <Text>The student's name is {theName}</Text>
-        </View>
+      <Stack.Navigator>
+        <Text>{`The student's name is ${name}`}</Text>
+      </Stack.Navigator>
     )
 }
 
@@ -28,11 +29,12 @@ function StudentsScreen({ navigation }) {
             }}>
           <StudentListDrawer.Screen
             name='Student1'
-            component=<StudentScreen studentName = 'Julia' />
+            component ={() => <StudentScreen studentName = "Julia" />}
           />
           <StudentListDrawer.Screen
             name='Student2'
-            component=<StudentScreen studentName = 'Samuel' />
+            {/* initialParams={{ studentName: 'Samuel' }} */}
+            component ={() => <StudentScreen studentName = "Samuel" />}
           />
         {/*
           <Text style={styles.headingText}> Home Screen </Text>
