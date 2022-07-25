@@ -29,12 +29,13 @@ function StudentsScreen({ navigation }) {
             }}>
           <StudentListDrawer.Screen
             name='Student1'
-            component ={() => <StudentScreen studentName = "Julia" />}
+            initialParams={{ studentName: 'Julia'}}
+            component ={StudentScreen}
           />
           <StudentListDrawer.Screen
             name='Student2'
-            {/* initialParams={{ studentName: 'Samuel' }} */}
-            component ={() => <StudentScreen studentName = "Samuel" />}
+            initialParams={{ studentName: 'Samuel'}}
+            component ={StudentScreen}
           />
         {/*
           <Text style={styles.headingText}> Home Screen </Text>
