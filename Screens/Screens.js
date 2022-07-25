@@ -13,9 +13,9 @@ function StudentScreen({ studentName }) {
   const [name, setName] = React.useState(studentName);
 
     return (
-      <Stack.Navigator>
+      <View>
         <Text>{`The student's name is ${name}`}</Text>
-      </Stack.Navigator>
+      </View>
     )
 }
 
