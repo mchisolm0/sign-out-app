@@ -12,3 +12,4 @@ web-build/
 
 # macOS
 .DS_Store
+sign-out-app.code-workspace
