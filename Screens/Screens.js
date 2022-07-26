@@ -1,61 +1,38 @@
 import 'react-native-gesture-handler';
-import React from 'react';
+import React, { useReducer } from 'react';
 import { StyleSheet, Text, View, Button, TextInput, useWindowDimensions } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createDrawerNavigator} from '@react-navigation/drawer';
+import { createDrawerNavigator, DrawerItemList } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CustomListTopper from '../CustomDrawerContent';
+
+import List from '../List';
+import { actionCreators, initialState, reducer } from '../student';
+import CustomDrawerContent from '../CustomDrawerContent';
 
 const Tab = createBottomTabNavigator();
-const StudentListDrawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-function StudentScreen({ studentName }) {
-  const [name, setName] = React.useState(studentName);
-
-    return (
-      <View>
-        <Text>{`The student's name is ${name}`}</Text>
-      </View>
-    )
-}
-
-function StudentsScreen({ navigation }) {
+function StudentDrawer({ route, navigation }) {
     const dimensions = useWindowDimensions();
+    const [state, dispatch] = useReducer(reducer, initialState)
 
     return (
-        <StudentListDrawer.Navigator
-            screenOptions={{
-                drawerType: dimensions.width >= 768 ? 'permanent' : 'slide',
-            }}>
-          <StudentListDrawer.Screen
-            name='Student1'
-            initialParams={{ studentName: 'Julia'}}
-            component ={StudentScreen}
-          />
-          <StudentListDrawer.Screen
-            name='Student2'
-            initialParams={{ studentName: 'Samuel'}}
-            component ={StudentScreen}
-          />
-        {/*
-          <Text style={styles.headingText}> Home Screen </Text>
-            <TextInput
-                style={styles.userText}
-                placeholder='Please add text'
-                value={name}
-                onChangeText={(text)=> setName(text)} />
-          <Button
-            title='Go to detail'
-            style={styles.button}
-            onPress={() => navigation.navigate(
-                "DetailScreen",
-                { params:
-                  { student: name }
-                }
-            )}
-          />
-         */}
-        </StudentListDrawer.Navigator>
+        <Drawer.Navigator
+            screenOptions={{drawerType: dimensions.width >= 768 ? 'permanent' : 'slide',}}
+            drawerContent={(props) => <CustomDrawerContent {...props} />}>
+            <Drawer.Screen
+                name='Student1'
+                initialParams={{ studentName: 'Julia'}}
+                component ={StudentScreen}
+            />
+            <Drawer.Screen
+                name='Student2'
+                initialParams={{ studentName: 'Samuel'}}
+                component ={StudentScreen}
+            />
+        </Drawer.Navigator>
     )
 }
 
@@ -75,15 +52,15 @@ function TodayScreen( route, navigation ) {
         <Tab.Navigator>
             <Tab.Screen
                 name='AM'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
             <Tab.Screen
                 name='PM'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
             <Tab.Screen
                 name='All'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
         </Tab.Navigator>
     )
@@ -94,15 +71,15 @@ function HistoryScreen( route, navigation ) {
         <Tab.Navigator>
             <Tab.Screen
                 name='AM'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
             <Tab.Screen
                 name='PM'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
             <Tab.Screen
                 name='All'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
         </Tab.Navigator>
     )
@@ -113,15 +90,15 @@ function SettingsScreen( route, navigation  ) {
         <Tab.Navigator>
             <Tab.Screen
                 name='AM'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
             <Tab.Screen
                 name='PM'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
             <Tab.Screen
                 name='All'
-                component={StudentsScreen}
+                component={StudentDrawer}
                 />
         </Tab.Navigator>
     )
@@ -153,4 +130,4 @@ const styles = StyleSheet.create({
     }
   });
 
-export { StudentsScreen, DetailScreen, HistoryScreen, TodayScreen, SettingsScreen};
+export { StudentDrawer, DetailScreen, HistoryScreen, TodayScreen, SettingsScreen};
