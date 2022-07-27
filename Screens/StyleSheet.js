@@ -26,5 +26,3 @@ export const stylesUsed = StyleSheet.create({
         alignItems:'center'
     }
   });
-
-  export { stylesUsed };

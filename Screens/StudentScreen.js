@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text } from 'react-native';
 
 
 
 export default function StudentScreen({ student }) {
-    const [name, setName] = React.useState(studentName);
+    const [name, setName] = useState(student);
   
     return (
     <View>
