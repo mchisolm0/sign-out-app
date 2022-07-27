@@ -1,8 +1,9 @@
+import { useState } from 'react';
+import { View, Text } from 'react-native';
 
 
 
-
-function StudentScreen({ student }) {
+export default function StudentScreen({ student }) {
     const [name, setName] = React.useState(studentName);
   
     return (
@@ -11,3 +12,5 @@ function StudentScreen({ student }) {
     </View>
     )
 }
+
+export { StudentScreen };
