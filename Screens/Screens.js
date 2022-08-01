@@ -9,8 +9,9 @@ const Tab = createBottomTabNavigator();
 const StudentListDrawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
-function StudentScreen({ studentName }) {
-  const [name, setName] = React.useState(studentName);
+// Added route to access the student name parameter
+function StudentScreen({ studentName, route }) {
+  const [name, setName] = React.useState(route.params.studentName);
 
     return (
       <View>
