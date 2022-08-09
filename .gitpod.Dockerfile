@@ -1,3 +1,3 @@
-FROM gitpod/workspace-node-16
+FROM gitpod/workspace-node:latest
 
 RUN npm install -g expo-cli
