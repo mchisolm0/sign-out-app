@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from "react";
-import db from 'firebase'
+import db from './db/firestore';
+
 // TODO Cause the created objects below to be
 // created in the Firestore db
 

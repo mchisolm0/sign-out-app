@@ -5,6 +5,7 @@ import { createDrawerNavigator, DrawerItemList } from '@react-navigation/drawer'
 
 import { StudentScreen } from './StudentScreen';
 import CustomDrawerContent from '../CustomDrawerContent';
+import db from '../db/firestore';
 
 const Drawer = createDrawerNavigator();
 
