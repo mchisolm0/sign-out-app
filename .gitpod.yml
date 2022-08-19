@@ -9,7 +9,6 @@ tasks:
   - name: expo account login
     command: expo login && expo w
     
-  - init: npm install
-    command: npm run start
+  - init: yarn
 
 
