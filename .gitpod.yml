@@ -9,5 +9,5 @@ tasks:
   - name: expo account login
     command: expo login && expo w
 
-  - init: npm install
+  - init: yarn
     command: expo start --tunnel
