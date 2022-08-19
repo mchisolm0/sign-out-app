@@ -10,5 +10,6 @@ tasks:
     command: expo login && expo w
     
   - init: yarn
+    command: expo start --tunnel
 
 
