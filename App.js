@@ -25,7 +25,7 @@ function StudentListStack() {
       </Stack.Navigator>
   )
   } */}
-// change
+
 export default function App() {
   return (
     <NavigationContainer>
