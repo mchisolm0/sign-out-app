@@ -16,3 +16,6 @@ web-build/
 .DS_Store
 sign-out-app.code-workspace
 .vscode/extensions.json
+
+# CocoaPods
+/ios/Pods/
