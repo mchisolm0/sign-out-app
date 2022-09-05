@@ -17,6 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-const db = firebase.firestore();
+// TODO Currently getting error "cannot find name 'firebase'"
+// const db = firebase.firestore();
 
-export default db;
+// export default db;
