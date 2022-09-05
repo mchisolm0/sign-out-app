@@ -65,7 +65,11 @@ function DetailScreen({ route, navigation }) {
     return (
         <View>
             <Text style={styles.headingText}>Student: { name } </Text>
-            <Button title='Go Home' style={styles.button} onPress={() => navigation.navigate('Home')} />
+            <Button 
+                title='Go Home' 
+                // style={styles.button} TODO fix this style 
+                onPress={() => navigation.navigate('Home')} 
+            />
         </View>
     )
 }
